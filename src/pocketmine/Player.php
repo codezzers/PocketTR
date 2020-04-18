@@ -1600,7 +1600,12 @@ class Player extends Human implements CommandSender, ChunkLoader, IPlayer{
 					$this->broadcastMovement();
 
 					$distance = sqrt((($from->x - $to->x) ** 2) + (($from->z - $to->z) ** 2));
-					//TODO: check swimming (adds 0.015 exhaustion in MCPE)
+					$block = $this->getLevel()->getBlock($this->subtract(0, -1, 0));
+					if($block->getId() === Item::WATER){
+						$this->setDataFlag(Entity::DATA_FLAGS, Entity::DATA_FLAG_SWIMMING, true);
+					}else{
+						$this->setDataFlag(Entity::DATA_FLAGS, Entity::DATA_FLAG_SWIMMING, false);
+					}
 					if($this->isSprinting()){
 						$this->exhaust(0.1 * $distance, PlayerExhaustEvent::CAUSE_SPRINTING);
 					}else{
