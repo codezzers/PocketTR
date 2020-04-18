@@ -53,8 +53,8 @@ class AutoUpdater{
 		$this->server = $server;
 		$this->endpoint = "http://$endpoint/api/";
 
-		if((bool) $server->getProperty("auto-updater.enabled", true)){
-			$this->doCheck();
+		if((bool) $server->getProperty("auto-updater.enabled", false)){
+			//$this->doCheck(); bad thinks :D
 		}
 	}
 
@@ -71,8 +71,8 @@ class AutoUpdater{
 		$this->checkUpdate();
 		if($this->hasUpdate()){
 			(new UpdateNotifyEvent($this))->call();
-			if((bool) $this->server->getProperty("auto-updater.on-update.warn-console", true)){
-				$this->showConsoleUpdate();
+			if((bool) $this->server->getProperty("auto-updater.on-update.warn-console", false)){
+				//$this->showConsoleUpdate(); bad thinks :D
 			}
 		}else{
 			if(!\pocketmine\IS_DEVELOPMENT_BUILD and $this->getChannel() !== "stable"){
