@@ -1,0 +1,80 @@
+This snapshot was automatically generated on
+Fri, 29 Nov 2019 12:54:46 +0000
+
+Version: 7.3.12
+Branch: HEAD
+Build: C:\pocketmine-php-sdk\php-src\x64\Release_TS
+
+Built-in Extensions
+===========================
+Core
+bcmath
+calendar
+ctype
+date
+filter
+hash
+iconv
+json
+SPL
+pcre
+readline
+Reflection
+session
+standard
+mysqlnd
+tokenizer
+zip
+zlib
+libxml
+dom
+PDO
+openssl
+SimpleXML
+xml
+wddx
+xmlreader
+xmlwriter
+curl
+ftp
+sqlite3
+Phar
+mbstring
+mysqli
+
+
+Dependency information:
+Module: php7ts.dll
+===========================
+	libcrypto-1_1-x64.dll
+	libssl-1_1-x64.dll
+	libssh2.dll
+	nghttp2.dll
+	libsodium.dll
+	yaml.dll
+
+Module: libssl-1_1-x64.dll
+===========================
+	libcrypto-1_1-x64.dll
+
+Module: libssh2.dll
+===========================
+	libcrypto-1_1-x64.dll
+
+Module: php_leveldb.dll
+===========================
+	leveldb.dll
+
+Module: php_openssl.dll
+===========================
+	libcrypto-1_1-x64.dll
+	libssl-1_1-x64.dll
+
+Module: php_pthreads.dll
+===========================
+	pthreadvc3.dll
+
+Module: php_crypto.dll
+===========================
+	libcrypto-1_1-x64.dll
+
