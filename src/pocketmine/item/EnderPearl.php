@@ -25,7 +25,7 @@ namespace pocketmine\item;
 
 class EnderPearl extends ProjectileItem{
 	public function __construct(int $meta = 0){
-		parent::__construct(self::ENDER_PEARL, $meta, "Ender Pearl");
+		parent::__construct(self::ENDER_PEARL, $meta, "Ender İncisi");
 	}
 
 	public function getMaxStackSize() : int{

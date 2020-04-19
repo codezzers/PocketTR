@@ -30,7 +30,7 @@ use function lcg_value;
 class RottenFlesh extends Food{
 
 	public function __construct(int $meta = 0){
-		parent::__construct(self::ROTTEN_FLESH, $meta, "Rotten Flesh");
+		parent::__construct(self::ROTTEN_FLESH, $meta, "Çürük Et");
 	}
 
 	public function getFoodRestore() : int{

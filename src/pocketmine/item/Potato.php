@@ -28,7 +28,7 @@ use pocketmine\block\BlockFactory;
 
 class Potato extends Food{
 	public function __construct(int $meta = 0){
-		parent::__construct(self::POTATO, $meta, "Potato");
+		parent::__construct(self::POTATO, $meta, "Patates");
 	}
 
 	public function getBlock() : Block{

@@ -25,7 +25,7 @@ namespace pocketmine\item;
 
 class Clownfish extends Food{
 	public function __construct(int $meta = 0){
-		parent::__construct(self::CLOWNFISH, $meta, "Clownfish");
+		parent::__construct(self::CLOWNFISH, $meta, "Palyaço Balığı");
 	}
 
 	public function getFoodRestore() : int{

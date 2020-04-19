@@ -28,7 +28,7 @@ use pocketmine\block\BlockFactory;
 
 class Bed extends Item{
 	public function __construct(int $meta = 0){
-		parent::__construct(self::BED, $meta, "Bed");
+		parent::__construct(self::BED, $meta, "Yatak");
 	}
 
 	public function getBlock() : Block{

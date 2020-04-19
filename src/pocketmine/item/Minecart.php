@@ -25,7 +25,7 @@ namespace pocketmine\item;
 
 class Minecart extends Item{
 	public function __construct(int $meta = 0){
-		parent::__construct(self::MINECART, $meta, "Minecart");
+		parent::__construct(self::MINECART, $meta, "Vagon");
 	}
 
 	//TODO

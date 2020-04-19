@@ -25,9 +25,9 @@ namespace pocketmine\item;
 
 class Coal extends Item{
 	public function __construct(int $meta = 0){
-		parent::__construct(self::COAL, $meta, "Coal");
+		parent::__construct(self::COAL, $meta, "Kömür");
 		if($this->meta === 1){
-			$this->name = "Charcoal";
+			$this->name = "Odun Kömürü";
 		}
 	}
 

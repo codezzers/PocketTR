@@ -28,7 +28,7 @@ use pocketmine\block\BlockFactory;
 
 class Redstone extends Item{
 	public function __construct(int $meta = 0){
-		parent::__construct(self::REDSTONE, $meta, "Redstone");
+		parent::__construct(self::REDSTONE, $meta, "Kızıltaş");
 	}
 
 	public function getBlock() : Block{

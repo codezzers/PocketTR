@@ -32,7 +32,7 @@ use function assert;
 
 class FlintSteel extends Tool{
 	public function __construct(int $meta = 0){
-		parent::__construct(self::FLINT_STEEL, $meta, "Flint and Steel");
+		parent::__construct(self::FLINT_STEEL, $meta, "Çakmak");
 	}
 
 	public function onActivate(Player $player, Block $blockReplace, Block $blockClicked, int $face, Vector3 $clickVector) : bool{

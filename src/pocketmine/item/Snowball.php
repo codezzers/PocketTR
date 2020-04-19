@@ -25,7 +25,7 @@ namespace pocketmine\item;
 
 class Snowball extends ProjectileItem{
 	public function __construct(int $meta = 0){
-		parent::__construct(self::SNOWBALL, $meta, "Snowball");
+		parent::__construct(self::SNOWBALL, $meta, "Kartopu");
 	}
 
 	public function getMaxStackSize() : int{

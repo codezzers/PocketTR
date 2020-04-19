@@ -25,7 +25,7 @@ namespace pocketmine\item;
 
 class Cookie extends Food{
 	public function __construct(int $meta = 0){
-		parent::__construct(self::COOKIE, $meta, "Cookie");
+		parent::__construct(self::COOKIE, $meta, "Kurabiye");
 	}
 
 	public function getFoodRestore() : int{

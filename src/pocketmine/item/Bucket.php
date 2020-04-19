@@ -35,7 +35,7 @@ use pocketmine\Player;
 
 class Bucket extends Item implements MaybeConsumable{
 	public function __construct(int $meta = 0){
-		parent::__construct(self::BUCKET, $meta, "Bucket");
+		parent::__construct(self::BUCKET, $meta, "Kova");
 	}
 
 	public function getMaxStackSize() : int{

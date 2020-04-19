@@ -36,7 +36,7 @@ use function min;
 
 class Bow extends Tool{
 	public function __construct(int $meta = 0){
-		parent::__construct(self::BOW, $meta, "Bow");
+		parent::__construct(self::BOW, $meta, "Yay");
 	}
 
 	public function getFuelTime() : int{

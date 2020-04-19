@@ -25,7 +25,7 @@ namespace pocketmine\item;
 
 class Dye extends Item{
 	public function __construct(int $meta = 0){
-		parent::__construct(self::DYE, $meta, "Dye");
+		parent::__construct(self::DYE, $meta, "Boya");
 	}
 
 	//TODO: names

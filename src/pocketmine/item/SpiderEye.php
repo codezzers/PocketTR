@@ -28,7 +28,7 @@ use pocketmine\entity\EffectInstance;
 
 class SpiderEye extends Food{
 	public function __construct(int $meta = 0){
-		parent::__construct(self::SPIDER_EYE, $meta, "Spider Eye");
+		parent::__construct(self::SPIDER_EYE, $meta, "Örümcek Gözü");
 	}
 
 	public function getFoodRestore() : int{

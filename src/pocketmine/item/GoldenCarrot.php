@@ -25,7 +25,7 @@ namespace pocketmine\item;
 
 class GoldenCarrot extends Food{
 	public function __construct(int $meta = 0){
-		parent::__construct(self::GOLDEN_CARROT, $meta, "Golden Carrot");
+		parent::__construct(self::GOLDEN_CARROT, $meta, "Altın Havuç");
 	}
 
 	public function getFoodRestore() : int{

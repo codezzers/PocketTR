@@ -29,7 +29,7 @@ use function mt_rand;
 
 class PoisonousPotato extends Food{
 	public function __construct(int $meta = 0){
-		parent::__construct(self::POISONOUS_POTATO, $meta, "Poisonous Potato");
+		parent::__construct(self::POISONOUS_POTATO, $meta, "Zehirli Patates");
 	}
 
 	public function getFoodRestore() : int{

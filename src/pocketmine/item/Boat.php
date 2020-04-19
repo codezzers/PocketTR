@@ -25,7 +25,7 @@ namespace pocketmine\item;
 
 class Boat extends Item{
 	public function __construct(int $meta = 0){
-		parent::__construct(self::BOAT, $meta, "Boat");
+		parent::__construct(self::BOAT, $meta, "Tekne");
 	}
 
 	public function getFuelTime() : int{

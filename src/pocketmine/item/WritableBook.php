@@ -35,7 +35,7 @@ class WritableBook extends Item{
 	public const TAG_PAGE_PHOTONAME = "photoname"; //TAG_String - TODO
 
 	public function __construct(int $meta = 0){
-		parent::__construct(self::WRITABLE_BOOK, $meta, "Book & Quill");
+		parent::__construct(self::WRITABLE_BOOK, $meta, "Kitep Ve Kalem");
 	}
 
 	/**

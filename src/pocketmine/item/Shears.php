@@ -28,7 +28,7 @@ use pocketmine\block\BlockToolType;
 
 class Shears extends Tool{
 	public function __construct(int $meta = 0){
-		parent::__construct(self::SHEARS, $meta, "Shears");
+		parent::__construct(self::SHEARS, $meta, "Makas");
 	}
 
 	public function getMaxDurability() : int{

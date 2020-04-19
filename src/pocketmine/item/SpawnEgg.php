@@ -31,7 +31,7 @@ use function lcg_value;
 
 class SpawnEgg extends Item{
 	public function __construct(int $meta = 0){
-		parent::__construct(self::SPAWN_EGG, $meta, "Spawn Egg");
+		parent::__construct(self::SPAWN_EGG, $meta, "Yaratık Yumurtası");
 	}
 
 	public function onActivate(Player $player, Block $blockReplace, Block $blockClicked, int $face, Vector3 $clickVector) : bool{

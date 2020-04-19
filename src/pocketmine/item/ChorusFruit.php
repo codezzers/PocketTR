@@ -34,7 +34,7 @@ use function mt_rand;
 class ChorusFruit extends Food{
 
 	public function __construct(int $meta = 0){
-		parent::__construct(self::CHORUS_FRUIT, $meta, "Chorus Fruit");
+		parent::__construct(self::CHORUS_FRUIT, $meta, "Chorus Meyvesi");
 	}
 
 	public function getFoodRestore() : int{

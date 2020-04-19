@@ -25,6 +25,6 @@ namespace pocketmine\item;
 
 class GlassBottle extends Item{
 	public function __construct(int $meta = 0){
-		parent::__construct(self::GLASS_BOTTLE, $meta, "Glass Bottle");
+		parent::__construct(self::GLASS_BOTTLE, $meta, "Cam Şişe");
 	}
 }

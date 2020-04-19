@@ -25,7 +25,7 @@ namespace pocketmine\item;
 
 class Totem extends Item{
 	public function __construct(int $meta = 0){
-		parent::__construct(self::TOTEM, $meta, "Totem of Undying");
+		parent::__construct(self::TOTEM, $meta, "Ölümsüzlük Totemi");
 	}
 
 	public function getMaxStackSize() : int{

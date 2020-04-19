@@ -25,7 +25,7 @@ namespace pocketmine\item;
 
 class CookedMutton extends Food{
 	public function __construct(int $meta = 0){
-		parent::__construct(self::COOKED_MUTTON, $meta, "Cooked Mutton");
+		parent::__construct(self::COOKED_MUTTON, $meta, "Pişmiş Koyun Eti");
 	}
 
 	public function getFoodRestore() : int{
