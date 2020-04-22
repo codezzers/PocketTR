@@ -379,6 +379,7 @@ class ComposerStaticInit59ceab0752331bd72a19370bde8c9c7f
         'pocketmine\\entity\\NPC' => __DIR__ . '/../..' . '/src/pocketmine/entity/NPC.php',
         'pocketmine\\entity\\Rideable' => __DIR__ . '/../..' . '/src/pocketmine/entity/Rideable.php',
         'pocketmine\\entity\\Skin' => __DIR__ . '/../..' . '/src/pocketmine/entity/Skin.php',
+		'pocketmine\\entity\\PocketSkin' => __DIR__ . '/../..' . '/src/pocketmine/entity/PocketSkin.php',
         'pocketmine\\entity\\Squid' => __DIR__ . '/../..' . '/src/pocketmine/entity/Squid.php',
         'pocketmine\\entity\\Vehicle' => __DIR__ . '/../..' . '/src/pocketmine/entity/Vehicle.php',
         'pocketmine\\entity\\Villager' => __DIR__ . '/../..' . '/src/pocketmine/entity/Villager.php',

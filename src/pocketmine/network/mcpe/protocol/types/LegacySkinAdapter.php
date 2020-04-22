@@ -24,6 +24,7 @@ declare(strict_types=1);
 namespace pocketmine\network\mcpe\protocol\types;
 
 use pocketmine\entity\Skin;
+use pocketmine\entity\PocketSkin;
 
 use function is_string;
 use function json_decode;
@@ -34,6 +35,7 @@ use function str_repeat;
 class LegacySkinAdapter implements SkinAdapter{
 
 	public function toSkinData(Skin $skin) : SkinData{
+		if($skin instanceof PocketSkin) return $skin->data;
 		$capeData = $skin->getCapeData();
 		$capeImage = $capeData === "" ? new SkinImage(0, 0, "") : new SkinImage(32, 64, $capeData);
 		$geometryName = $skin->getGeometryName();
@@ -50,20 +52,6 @@ class LegacySkinAdapter implements SkinAdapter{
 	}
 
 	public function fromSkinData(SkinData $data) : Skin{
-		if($data->isPersona()){
-			return new Skin("Standard_Custom", str_repeat(random_bytes(3) . "\xff", 2048));
-		}
-
-		$capeData = $data->isPersonaCapeOnClassic() ? "" : $data->getCapeImage()->getData();
-
-		$geometryName = "";
-		$resourcePatch = json_decode($data->getResourcePatch(), true);
-		if(isset($resourcePatch["geometry"]["default"]) && is_string($resourcePatch["geometry"]["default"])){
-			$geometryName = $resourcePatch["geometry"]["default"];
-		}else{
-			//TODO: Kick for invalid skin
-		}
-
-		return new Skin($data->getSkinId(), $data->getSkinImage()->getData(), $capeData, $geometryName, $data->getGeometryData());
+		return new PocketSkin($data);
 	}
 }
