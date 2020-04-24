@@ -392,6 +392,7 @@ class ComposerStaticInit59ceab0752331bd72a19370bde8c9c7f
         'pocketmine\\entity\\object\\PaintingMotive' => __DIR__ . '/../..' . '/src/pocketmine/entity/object/PaintingMotive.php',
         'pocketmine\\entity\\object\\PrimedTNT' => __DIR__ . '/../..' . '/src/pocketmine/entity/object/PrimedTNT.php',
         'pocketmine\\entity\\projectile\\Arrow' => __DIR__ . '/../..' . '/src/pocketmine/entity/projectile/Arrow.php',
+        'pocketmine\\entity\\projectile\\Hook' => __DIR__ . '/../..' . '/src/pocketmine/entity/projectile/Hook.php',
         'pocketmine\\entity\\projectile\\Egg' => __DIR__ . '/../..' . '/src/pocketmine/entity/projectile/Egg.php',
         'pocketmine\\entity\\projectile\\EnderPearl' => __DIR__ . '/../..' . '/src/pocketmine/entity/projectile/EnderPearl.php',
         'pocketmine\\entity\\projectile\\ExperienceBottle' => __DIR__ . '/../..' . '/src/pocketmine/entity/projectile/ExperienceBottle.php',
