@@ -86,4 +86,27 @@ class PlayerInteractEvent extends PlayerEvent implements Cancellable{
 	public function getFace() : int{
 		return $this->blockFace;
 	}
+
+	public function getFaceName(int $face): string{
+		switch($face){
+			case 0:
+				return "Down";
+			break;
+			case 1:
+				return "Up";
+			break;
+			case 2:
+				return "North";
+			break;
+			case 3:
+				return "South";
+			break;
+			case 4:
+				return "East";
+			break;
+			case 5:
+				return "West";
+			break;
+		}
+	}
 }
