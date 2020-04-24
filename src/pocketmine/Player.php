@@ -24,6 +24,7 @@ declare(strict_types=1);
 namespace pocketmine;
 
 use pocketmine\block\Bed;
+use pocketmine\item\Shield;
 use pocketmine\block\Block;
 use pocketmine\block\BlockFactory;
 use pocketmine\block\UnknownBlock;
@@ -71,6 +72,7 @@ use pocketmine\form\Form;
 use pocketmine\form\FormValidationException;
 use pocketmine\inventory\CraftingGrid;
 use pocketmine\inventory\Inventory;
+use pocketmine\inventory\LeftInventory;
 use pocketmine\inventory\PlayerCursorInventory;
 use pocketmine\inventory\transaction\action\InventoryAction;
 use pocketmine\inventory\transaction\CraftingTransaction;
@@ -372,6 +374,9 @@ class Player extends Human implements CommandSender, ChunkLoader, IPlayer{
 	protected $lastRightClickTime = 0.0;
 	/** @var Vector3|null */
 	protected $lastRightClickPos = null;
+
+	/** @var LeftHand */
+	protected $itemInLeftHand;
 
 	/**
 	 * @return TranslationContainer|string
@@ -1816,8 +1821,16 @@ class Player extends Human implements CommandSender, ChunkLoader, IPlayer{
 	}
 
 	protected function initEntity() : void{
+		$this->itemInLeftHand = new LeftInventory($this);
+		if($this->namedtag->hasTag("leftHand", CompoundTag::class)){
+			$this->itemInLeftHand->setItemInLeftHand(Item::nbtDeserialize($this->namedtag->getCompoundTag("leftHand")));
+		}
 		parent::initEntity();
 		$this->addDefaultWindows();
+	}
+
+	public function getLeftInventory(): LeftInventory{
+		return $this->itemInLeftHand;
 	}
 
 	public function handleLogin(LoginPacket $packet) : bool{
@@ -2686,6 +2699,18 @@ class Player extends Human implements CommandSender, ChunkLoader, IPlayer{
 
 		$this->setUsingItem(false);
 
+		if($packet->windowId === ContainerIds::OFFHAND){
+			$item = $this->itemInLeftHand->getItem($packet->hotbarSlot);
+
+			if(!$item->equals($packet->item)){
+				$this->itemInLeftHand->sendContents($this);
+				return false;
+			}
+			$this->itemInLeftHand->setItemInLeftHand($packet->item);
+			$this->namedtag->setTag($packet->item->nbtSerialize(-1, "leftHand"));
+			return true;
+		}
+
 		return true;
 	}
 
@@ -2867,6 +2892,13 @@ class Player extends Human implements CommandSender, ChunkLoader, IPlayer{
 	public function toggleSneak(bool $sneak) : void{
 		$ev = new PlayerToggleSneakEvent($this, $sneak);
 		$ev->call();
+		if($this->getLeftInventory()->getItemInLeftHand() instanceof Shield){
+			if($ev->isSneaking()){
+				$this->setGenericFlag(Entity::DATA_FLAG_BLOCKING, true);
+			}else{
+				$this->setGenericFlag(Entity::DATA_FLAG_BLOCKING, false);
+			}
+		}
 		if($ev->isCancelled()){
 			$this->sendData($this);
 		}else{
@@ -3572,6 +3604,7 @@ class Player extends Human implements CommandSender, ChunkLoader, IPlayer{
 		}
 
 		parent::saveNBT();
+		$this->namedtag->setTag($this->itemInLeftHand->getItemInLeftHand()->nbtSerialize(-1, "leftHand"));
 
 		if($this->isValid()){
 			$this->namedtag->setString("Level", $this->level->getFolderName());
@@ -3710,6 +3743,29 @@ class Player extends Human implements CommandSender, ChunkLoader, IPlayer{
 			$source->setCancelled();
 		}
 
+		if($source instanceof EntityDamageByEntityEvent){
+			$damager = $source->getDamager();
+			$entity = $source->getEntity();
+			if($entity instanceof Player){
+				if(($item = $entity->getLeftInventory()->getItemInLeftHand()) instanceof Shield){
+					if($entity->getGenericFlag(Entity::DATA_FLAG_BLOCKING)){
+						$val = floor(abs($damager->yaw - $entity->yaw) / 2);
+						if($val >= 50 and $val <= 110){
+							$entity->getLevel()->broadcastLevelSoundEvent($entity, LevelSoundEventPacket::SOUND_ITEM_SHIELD_BLOCK);
+							$finalDamage = $source->getFinalDamage();
+							if($finalDamage >= 4){
+								$item->applyDamage(1);
+								$entity->getLeftInventory()->setItemInLeftHand($item);
+								$source->setBaseDamage($finalDamage * 0.3);
+							}else{
+								$source->setCancelled();
+							}
+						}
+					}
+				}
+			}
+		}
+
 		parent::attack($source);
 	}
 
@@ -3790,6 +3846,7 @@ class Player extends Human implements CommandSender, ChunkLoader, IPlayer{
 		$this->addWindow($this->getInventory(), ContainerIds::INVENTORY, true);
 
 		$this->addWindow($this->getArmorInventory(), ContainerIds::ARMOR, true);
+		$this->addWindow($this->itemInLeftHand, ContainerIds::OFFHAND, true);
 
 		$this->cursorInventory = new PlayerCursorInventory($this);
 		$this->addWindow($this->cursorInventory, ContainerIds::UI, true);
