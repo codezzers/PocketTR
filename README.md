@@ -7,4 +7,5 @@ Pocketmine forked for create not official PocketTR server software
 ✓ All item names set Turkish language<br>
 ✓ Persona skin support<br>
 ✓ Add Crossbow<br>
-✓ Add FishingRod
+✓ Add FishingRod<br>
+✓ Add fireworks (Thanks for thebigsmileXD)
