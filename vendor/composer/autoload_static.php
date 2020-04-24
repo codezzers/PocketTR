@@ -1055,6 +1055,7 @@ class ComposerStaticInit59ceab0752331bd72a19370bde8c9c7f
         'pocketmine\\permission\\ServerOperator' => __DIR__ . '/../..' . '/src/pocketmine/permission/ServerOperator.php',
         'pocketmine\\plugin\\EventExecutor' => __DIR__ . '/../..' . '/src/pocketmine/plugin/EventExecutor.php',
         'pocketmine\\plugin\\MethodEventExecutor' => __DIR__ . '/../..' . '/src/pocketmine/plugin/MethodEventExecutor.php',
+		'pocketmine\\plugin\\FolderPluginLoader' => __DIR__ . '/../..' . '/src/pocketmine/plugin/FolderPluginLoader.php',
         'pocketmine\\plugin\\PharPluginLoader' => __DIR__ . '/../..' . '/src/pocketmine/plugin/PharPluginLoader.php',
         'pocketmine\\plugin\\Plugin' => __DIR__ . '/../..' . '/src/pocketmine/plugin/Plugin.php',
         'pocketmine\\plugin\\PluginBase' => __DIR__ . '/../..' . '/src/pocketmine/plugin/PluginBase.php',
