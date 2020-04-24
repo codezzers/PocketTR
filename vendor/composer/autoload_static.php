@@ -566,6 +566,7 @@ class ComposerStaticInit59ceab0752331bd72a19370bde8c9c7f
         'pocketmine\\item\\Boat' => __DIR__ . '/../..' . '/src/pocketmine/item/Boat.php',
         'pocketmine\\item\\Book' => __DIR__ . '/../..' . '/src/pocketmine/item/Book.php',
         'pocketmine\\item\\Bow' => __DIR__ . '/../..' . '/src/pocketmine/item/Bow.php',
+        'pocketmine\\item\\Crossbow' => __DIR__ . '/../..' . '/src/pocketmine/item/Crossbow.php',
         'pocketmine\\item\\Bowl' => __DIR__ . '/../..' . '/src/pocketmine/item/Bowl.php',
         'pocketmine\\item\\Bread' => __DIR__ . '/../..' . '/src/pocketmine/item/Bread.php',
         'pocketmine\\item\\Bucket' => __DIR__ . '/../..' . '/src/pocketmine/item/Bucket.php',

@@ -61,6 +61,7 @@ class ItemFactory{
 		self::registerItem(new FlintSteel());
 		self::registerItem(new Apple());
 		self::registerItem(new Bow());
+		self::registerItem(new Crossbow(), true);
 		self::registerItem(new Arrow());
 		self::registerItem(new Coal());
 		self::registerItem(new Item(Item::DIAMOND, 0, "Diamond"));
