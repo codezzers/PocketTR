@@ -2,6 +2,7 @@
 Pocketmine forked for create not official PocketTR server software
 
 # Completed
+✓ Folder Plugin Loader<br>
 ✓ Swim problem solved<br>
 ✓ All block names set Turkish language<br>
 ✓ All item names set Turkish language<br>
