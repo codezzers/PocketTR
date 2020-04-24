@@ -556,6 +556,7 @@ class ComposerStaticInit59ceab0752331bd72a19370bde8c9c7f
         'pocketmine\\inventory\\transaction\\action\\InventoryAction' => __DIR__ . '/../..' . '/src/pocketmine/inventory/transaction/action/InventoryAction.php',
         'pocketmine\\inventory\\transaction\\action\\SlotChangeAction' => __DIR__ . '/../..' . '/src/pocketmine/inventory/transaction/action/SlotChangeAction.php',
         'pocketmine\\item\\Apple' => __DIR__ . '/../..' . '/src/pocketmine/item/Apple.php',
+        'pocketmine\\item\\Elytra' => __DIR__ . '/../..' . '/src/pocketmine/item/Elytra.php',
         'pocketmine\\item\\Armor' => __DIR__ . '/../..' . '/src/pocketmine/item/Armor.php',
         'pocketmine\\item\\Shield' => __DIR__ . '/../..' . '/src/pocketmine/item/Shield.php',
         'pocketmine\\item\\Fireworks' => __DIR__ . '/../..' . '/src/pocketmine/item/Fireworks.php',
