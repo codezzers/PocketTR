@@ -33,6 +33,6 @@ if(defined('pocketmine\_VERSION_INFO_INCLUDED')){
 const _VERSION_INFO_INCLUDED = true;
 
 const NAME = "PocketTR";
-const BASE_VERSION = "3.12.0";
-const IS_DEVELOPMENT_BUILD = false;
+const BASE_VERSION = "1.5.0";
+const IS_DEVELOPMENT_BUILD = true;
 const BUILD_NUMBER = 1;
