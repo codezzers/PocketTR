@@ -5,6 +5,7 @@ namespace pocketmine\scoreboard;
 use pocketmine\network\mcpe\protocol\SetDisplayObjectivePacket;
 use pocketmine\network\mcpe\protocol\RemoveObjectivePacket;
 use pocketmine\network\mcpe\protocol\SetScorePacket;
+use pocketmine\network\mcpe\protocol\types\ScorePacketEntry;
 use pocketmine\Server;
 use pocketmine\Player;
 
@@ -14,7 +15,7 @@ class Scoreboard{
 
     public static function addScoreboard(Player $player, string $objectiveName, string $displayName){
         if(!$player instanceof Player){return false;}
-        if(isset(Scoreboard::scoreboards[$player->getName()])){
+        if(isset(Scoreboard::$scoreboards[$player->getName()])){
             Scoreboard::removeScoreboard($player);
         }
         $pk = new SetDisplayObjectivePacket();
@@ -24,7 +25,7 @@ class Scoreboard{
 		$pk->criteriaName = "dummy";
         $pk->sortOrder = 0;
         $player->sendDataPacket($pk);
-		Scoreboard::scoreboards[$player->getName()] = $objectiveName;
+		Scoreboard::$scoreboards[$player->getName()] = $objectiveName;
     }
 
     public static function removeScoreboard(Player $player){
@@ -33,7 +34,7 @@ class Scoreboard{
 		$pk = new RemoveObjectivePacket();
 		$pk->objectiveName = $objectiveName;
 		$player->sendDataPacket($pk);
-		unset(Scoreboard::scoreboards[$player->getName()]);
+		unset(Scoreboard::$scoreboards[$player->getName()]);
     }
 
     public static function setLine(Player $player, int $score, string $message){
@@ -56,6 +57,6 @@ class Scoreboard{
 
     public static function getObjectiveName(Player $player): ?string {
         if(!$player instanceof Player){return false;}
-		return isset(Scoreboard::scoreboards[$player->getName()]) ? $Scoreboard::scoreboards[$player->getName()] : null;
+		return isset(Scoreboard::$scoreboards[$player->getName()]) ? Scoreboard::$scoreboards[$player->getName()] : null;
     }
 }
