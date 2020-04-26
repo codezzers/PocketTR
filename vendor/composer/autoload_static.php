@@ -1088,6 +1088,7 @@ class ComposerStaticInit59ceab0752331bd72a19370bde8c9c7f
         'pocketmine\\snooze\\SleeperHandler' => __DIR__ . '/..' . '/pocketmine/snooze/src/SleeperHandler.php',
         'pocketmine\\snooze\\SleeperNotifier' => __DIR__ . '/..' . '/pocketmine/snooze/src/SleeperNotifier.php',
         'pocketmine\\snooze\\ThreadedSleeper' => __DIR__ . '/..' . '/pocketmine/snooze/src/ThreadedSleeper.php',
+        'pocketmine\\scoreboard\\Scoreboard' => __DIR__ . '/../..' . '/src/pocketmine/scoreboard/Scoreboard.php',
         'pocketmine\\tile\\Banner' => __DIR__ . '/../..' . '/src/pocketmine/tile/Banner.php',
         'pocketmine\\tile\\Bed' => __DIR__ . '/../..' . '/src/pocketmine/tile/Bed.php',
         'pocketmine\\tile\\Chest' => __DIR__ . '/../..' . '/src/pocketmine/tile/Chest.php',
