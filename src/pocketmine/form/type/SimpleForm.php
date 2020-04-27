@@ -74,7 +74,7 @@ class SimpleForm extends Form
      * @param int $imageType
      * @param string $imagePath
      */
-    public function addButton(string $text, int $imageType = -1, string $imagePath = ""): void
+    public function addButton(string $text, int $imageType = -1, string $imagePath = "", ?string $label = null): void
     {
         $content = ["text" => $text];
         if ($imageType !== -1) {
@@ -82,6 +82,7 @@ class SimpleForm extends Form
             $content["image"]["data"] = $imagePath;
         }
         $this->data["buttons"][] = $content;
+        $this->labelMap[] = $label ?? count($this->labelMap);
     }
 
 }
