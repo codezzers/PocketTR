@@ -1,6 +1,6 @@
 <?php
 
-namespace pocketmine\entity;
+namespace pocketmine\entity\monster;
 
 use pocketmine\entity\ai\AgeableTrait;
 use pocketmine\entity\ai\ClimbingTrait;

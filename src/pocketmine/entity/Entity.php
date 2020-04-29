@@ -43,6 +43,10 @@ use pocketmine\entity\projectile\Snowball;
 use pocketmine\entity\projectile\SplashPotion;
 use pocketmine\entity\projectile\Hook;
 use pocketmine\entity\projectile\FireworksRocket;
+
+use pocketmine\entity\monster\Zombie;
+use pocketmine\entity\monster\Skeleton;
+
 use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\event\entity\EntityDespawnEvent;
 use pocketmine\event\entity\EntityLevelChangeEvent;
@@ -353,6 +357,7 @@ abstract class Entity extends Location implements Metadatable, EntityIds{
 		Entity::registerEntity(Squid::class, false, ['Squid', 'minecraft:squid']);
 		Entity::registerEntity(Villager::class, false, ['Villager', 'minecraft:villager']);
 		Entity::registerEntity(Zombie::class, false, ['Zombie', 'minecraft:zombie']);
+		Entity::registerEntity(Skeleton::class, false, ['Skeleton', 'minecraft:skeleton']);
 		Entity::registerEntity(Hook::class, false, ["FishingHook", "minecraft:fishinghook"]);
 		Entity::registerEntity(FireworksRocket::class, false, ["FireworksRocket"]);
 
