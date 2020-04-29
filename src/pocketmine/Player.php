@@ -101,6 +101,7 @@ use pocketmine\nbt\tag\ByteTag;
 use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\nbt\tag\DoubleTag;
 use pocketmine\nbt\tag\ListTag;
+use pocketmine\item\Armor;
 use pocketmine\network\mcpe\PlayerNetworkSessionAdapter;
 use pocketmine\network\mcpe\protocol\ActorEventPacket;
 use pocketmine\network\mcpe\protocol\AdventureSettingsPacket;
@@ -217,6 +218,36 @@ class Player extends Human implements CommandSender, ChunkLoader, IPlayer{
 	public const ADVENTURE = 2;
 	public const SPECTATOR = 3;
 	public const VIEW = Player::SPECTATOR;
+
+	public const HELMET = [
+		Item::LEATHER_HELMET,
+		Item::CHAIN_HELMET,
+		Item::IRON_HELMET,
+		Item::GOLD_HELMET,
+		Item::DIAMOND_HELMET
+	];
+	public const CHESTPLATE = [
+		Item::LEATHER_CHESTPLATE,
+		Item::CHAIN_CHESTPLATE,
+		Item::IRON_CHESTPLATE,
+		Item::GOLD_CHESTPLATE,
+		Item::DIAMOND_CHESTPLATE,
+		Item::ELYTRA
+	];
+	public const LEGGINGS = [
+		Item::LEATHER_LEGGINGS,
+		Item::CHAIN_LEGGINGS,
+		Item::IRON_LEGGINGS,
+		Item::GOLD_LEGGINGS,
+		Item::DIAMOND_LEGGINGS
+	];
+	public const BOOTS = [
+		Item::LEATHER_BOOTS,
+		Item::CHAIN_BOOTS,
+		Item::IRON_BOOTS,
+		Item::GOLD_BOOTS,
+		Item::DIAMOND_BOOTS
+	];
 
 	/**
 	 * Validates the given username.
@@ -2526,6 +2557,11 @@ class Player extends Human implements CommandSender, ChunkLoader, IPlayer{
 							$ev->setCancelled();
 						}
 
+						if(($ev->getAction() === PlayerInteractEvent::RIGHT_CLICK_AIR or $ev->getAction() === RIGHT_CLICK_BLOCK) and ($ev->getItem() instanceof Armor or $ev->getItem()->getId() === Item::ELYTRA) and $ev->getBlock()->getId() != Block::ITEM_FRAME_BLOCK){
+							$this->setArmorByType($ev->getItem(), $ev->getPlayer());
+							$ev->setCancelled();
+						}
+
 						$ev->call();
 						if($ev->isCancelled()){
 							$this->inventory->sendHeldItem($this);
@@ -2680,6 +2716,26 @@ class Player extends Human implements CommandSender, ChunkLoader, IPlayer{
 		}
 
 		return false; //TODO
+	}
+
+	public function setArmorByType(Item $armor, Player $player): void{
+		$id = $armor->getId();
+		if(in_array($id, self::HELMET, true)){
+			$copy = $player->getArmorInventory()->getHelmet();
+			$set = $player->getArmorInventory()->setHelmet($armor);
+		}elseif(in_array($id, self::CHESTPLATE, true)){
+			$copy = $player->getArmorInventory()->getChestplate();
+			$set = $player->getArmorInventory()->setChestplate($armor);
+		}elseif(in_array($id, self::LEGGINGS, true)){
+			$copy = $player->getArmorInventory()->getLeggings();
+			$set = $player->getArmorInventory()->setLeggings($armor);
+		}else{
+			$copy = $player->getArmorInventory()->getBoots();
+			$set = $player->getArmorInventory()->setBoots($armor);
+		}
+		if($set){
+			$player->getInventory()->setItemInHand($copy);
+		}
 	}
 
 	public function handleMobEquipment(MobEquipmentPacket $packet) : bool{
