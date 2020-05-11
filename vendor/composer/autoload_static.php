@@ -109,6 +109,7 @@ class ComposerStaticInit59ceab0752331bd72a19370bde8c9c7f
         'pocketmine\\Server' => __DIR__ . '/../..' . '/src/pocketmine/Server.php',
         'pocketmine\\Thread' => __DIR__ . '/../..' . '/src/pocketmine/Thread.php',
         'pocketmine\\ThreadManager' => __DIR__ . '/../..' . '/src/pocketmine/ThreadManager.php',
+        'pocketmine\\QueryManager' => __DIR__ . '/../..' . '/src/pocketmine/QueryManager.php',
         'pocketmine\\Worker' => __DIR__ . '/../..' . '/src/pocketmine/Worker.php',
         'pocketmine\\block\\ActivatorRail' => __DIR__ . '/../..' . '/src/pocketmine/block/ActivatorRail.php',
         'pocketmine\\block\\Air' => __DIR__ . '/../..' . '/src/pocketmine/block/Air.php',
